@@ -14,7 +14,15 @@
   <!-- ==== WOW JS ==== -->
   <script src="assets/js/wow.min.js"></script>
   <script>
-    new WOW().init();
+    // new WOW().init();
+    document.addEventListener('DOMContentLoaded', function () {
+      const htmlElement = document.getElementById('htmlElement');
+      const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      
+      if (prefersDarkScheme) {
+        htmlElement.classList.add('dark');
+      }
+    });
   </script>
 </head>
 
