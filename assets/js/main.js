@@ -1,6 +1,16 @@
 (function () {
   "use strict";
-
+  document.addEventListener('DOMContentLoaded', function () {
+    const htmlElement = document.documentElement; // Cambia a 'document.documentElement' si quieres aplicarlo a todo el documento
+    // const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  
+    // Si no quieres usar la preferencia del usuario y siempre usar el modo oscuro, comenta la línea anterior y descomenta la siguiente:
+    const prefersDarkScheme = true; // Esto fuerza el modo oscuro siempre
+  
+    if (prefersDarkScheme) {
+      htmlElement.classList.add('dark');
+    }
+  });
   // ======= Sticky 
   window.onscroll = function () {
     const ud_header = document.querySelector(".ud-header");

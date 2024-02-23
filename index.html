@@ -11,6 +11,75 @@
   <link rel="stylesheet" href="assets/css/animate.css" />
   <link rel="stylesheet" href="assets/css/tailwind.css" />
 
+  <style>
+    /* Swiper styles */
+    .hero-section {
+      position: relative;
+    }
+    .overlay-content {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .swiper-container {
+      width: 100%;
+      height: auto;
+    }
+    .carousel-image {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 20px;
+    }
+    .swiper-slide {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 18px;
+      text-align: center;
+    }
+    .swiper-pagination {
+      position: absolute;
+      bottom: -40px;
+      left: 0;
+      right: 0;
+    }
+    .statistics-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      text-align: center;
+    }
+    .statistics-item {
+      background: #fff ;
+      color: #192555;
+      padding: 20px;
+      border-radius: 25px;
+      padding: 20px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    .statistics-value {
+      font-size: 4rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+    .statistics-label {
+      font-size: 1.25rem;
+    }
+    @media (max-width: 768px) {
+      .carousel-image {
+        height: 300px;
+      }
+      .statistics-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
   <!-- ==== WOW JS ==== -->
   <script src="assets/js/wow.min.js"></script>
   <script>
@@ -18,7 +87,7 @@
     document.addEventListener('DOMContentLoaded', function () {
       const htmlElement = document.getElementById('htmlElement');
       const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      
+
       if (prefersDarkScheme) {
         htmlElement.classList.add('dark');
       }
@@ -27,6 +96,7 @@
 </head>
 
 <body>
+
   <!-- ====== Navbar Section Start -->
   <div class="ud-header absolute left-0 top-0 z-40 flex w-full items-center bg-transparent">
     <div class="container">
@@ -103,7 +173,7 @@
                       class="block rounded px-4 py-[10px] text-sm text-body-color hover:text-primary dark:text-dark-6 dark:hover:text-primary">
                       DISLEXIA
                     </a>
-                    <a href="TDAH.html"
+                    <a href="blog-details.html"
                       class="block rounded px-4 py-[10px] text-sm text-body-color hover:text-primary dark:text-dark-6 dark:hover:text-primary">
                       TDAH
                     </a>
@@ -213,21 +283,6 @@
                 </svg>
               </span>
             </label>
-            <!-- Buttons -->
-            <!-- <div class="hidden sm:flex">
-                <a
-                  href="signin.html"
-                  class="loginBtn px-[22px] py-2 text-base font-medium text-white hover:opacity-70"
-                >
-                  Sign In
-                </a>
-                <a
-                  href="signup.html"
-                  class="signUpBtn rounded-md bg-white bg-opacity-20 px-6 py-2 text-base font-medium text-white duration-300 ease-in-out hover:bg-opacity-100 hover:text-dark"
-                >
-                  Sign Up
-                </a>
-              </div> -->
           </div>
         </div>
       </div>
@@ -284,9 +339,8 @@
                 </a>
               </li>
             </ul>
-
             <div>
-              <p class="mb-4 text-center text-base font-medium text-white">
+              <p class="mb-4 10text-center text-base font-medium text-white">
                 Siguenos y enterate de más!
               </p>
               <div class="wow fadeInUp flex items-center justify-center gap-4 text-center" data-wow-delay=".3s">
@@ -312,6 +366,7 @@
                     </path>
                   </svg>
                 </a>
+
                 <!-- <a href="https://github.com/NextJSTemplates/play-nextjs"
                   class="text-white/60 duration-300 ease-in-out hover:text-white" target="_blank">
                   <svg class="fill-current" width="41" height="36" viewBox="0 0 41 36" fill="none"
@@ -351,180 +406,56 @@
             </div>
           </div>
         </div>
-
         <div class="w-full px-4">
+
+          <!-- Swiper -->
+          <div class="wow fadeInRight hero-section">
+            <div class="swiper-container">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="mt-16">
+                    <img class="carousel-image" src="assets/images/hero/hero-image1.png" alt="hero"
+                      class="mx-auto max-w-full rounded-t-xl rounded-tr-xl" />
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="mt-16">
+                    <img class="carousel-image" src="assets/images/hero/hero-image2.png" alt="hero"
+                      class="mx-auto max-w-full rounded-t-xl rounded-tr-xl" />
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="mt-16">
+                    <img class="carousel-image" src="assets/images/hero/hero-image3.png" alt="hero"
+                      class="mx-auto max-w-full rounded-t-xl rounded-tr-xl" />
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="mt-16">
+                    <img class="carousel-image" src="assets/images/hero/hero-image4.png" alt="hero"
+                      class="mx-auto max-w-full rounded-t-xl rounded-tr-xl" />
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+          <!-- Statistics section -->
+          <div class=" wow fadeInUp statistics-container">
+            <div class="statistics-item">
+              <p class="statistics-value">+115,000</p>
+              <p class="statistics-label">Alumnos</p>
+            </div>
+            <div class="statistics-item">
+              <p class="statistics-value">96 de 100</p>
+              <p class="statistics-label">Recomendarían</p>
+            </div>
+            <div class="statistics-item">
+              <p class="statistics-value">167</p>
+              <p class="statistics-label">Centros en el Mundo</p>
+            </div>
+          </div>
           <div class="wow fadeInUp relative z-10 mx-auto max-w-[845px]" data-wow-delay=".25s">
-            <div class="mt-16">
-              <img src="assets/images/hero/Sola.png" alt="hero" class="mx-auto max-w-full rounded-t-xl rounded-tr-xl" />
-            </div>
-            <div class="absolute -left-9 bottom-0 z-[-1]">
-              <svg width="134" height="106" viewBox="0 0 134 106" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="1.66667" cy="104" r="1.66667" transform="rotate(-90 1.66667 104)" fill="white" />
-                <circle cx="16.3333" cy="104" r="1.66667" transform="rotate(-90 16.3333 104)" fill="white" />
-                <circle cx="31" cy="104" r="1.66667" transform="rotate(-90 31 104)" fill="white" />
-                <circle cx="45.6667" cy="104" r="1.66667" transform="rotate(-90 45.6667 104)" fill="white" />
-                <circle cx="60.3333" cy="104" r="1.66667" transform="rotate(-90 60.3333 104)" fill="white" />
-                <circle cx="88.6667" cy="104" r="1.66667" transform="rotate(-90 88.6667 104)" fill="white" />
-                <circle cx="117.667" cy="104" r="1.66667" transform="rotate(-90 117.667 104)" fill="white" />
-                <circle cx="74.6667" cy="104" r="1.66667" transform="rotate(-90 74.6667 104)" fill="white" />
-                <circle cx="103" cy="104" r="1.66667" transform="rotate(-90 103 104)" fill="white" />
-                <circle cx="132" cy="104" r="1.66667" transform="rotate(-90 132 104)" fill="white" />
-                <circle cx="1.66667" cy="89.3333" r="1.66667" transform="rotate(-90 1.66667 89.3333)" fill="white" />
-                <circle cx="16.3333" cy="89.3333" r="1.66667" transform="rotate(-90 16.3333 89.3333)" fill="white" />
-                <circle cx="31" cy="89.3333" r="1.66667" transform="rotate(-90 31 89.3333)" fill="white" />
-                <circle cx="45.6667" cy="89.3333" r="1.66667" transform="rotate(-90 45.6667 89.3333)" fill="white" />
-                <circle cx="60.3333" cy="89.3338" r="1.66667" transform="rotate(-90 60.3333 89.3338)" fill="white" />
-                <circle cx="88.6667" cy="89.3338" r="1.66667" transform="rotate(-90 88.6667 89.3338)" fill="white" />
-                <circle cx="117.667" cy="89.3338" r="1.66667" transform="rotate(-90 117.667 89.3338)" fill="white" />
-                <circle cx="74.6667" cy="89.3338" r="1.66667" transform="rotate(-90 74.6667 89.3338)" fill="white" />
-                <circle cx="103" cy="89.3338" r="1.66667" transform="rotate(-90 103 89.3338)" fill="white" />
-                <circle cx="132" cy="89.3338" r="1.66667" transform="rotate(-90 132 89.3338)" fill="white" />
-                <circle cx="1.66667" cy="74.6673" r="1.66667" transform="rotate(-90 1.66667 74.6673)" fill="white" />
-                <circle cx="1.66667" cy="31.0003" r="1.66667" transform="rotate(-90 1.66667 31.0003)" fill="white" />
-                <circle cx="16.3333" cy="74.6668" r="1.66667" transform="rotate(-90 16.3333 74.6668)" fill="white" />
-                <circle cx="16.3333" cy="31.0003" r="1.66667" transform="rotate(-90 16.3333 31.0003)" fill="white" />
-                <circle cx="31" cy="74.6668" r="1.66667" transform="rotate(-90 31 74.6668)" fill="white" />
-                <circle cx="31" cy="31.0003" r="1.66667" transform="rotate(-90 31 31.0003)" fill="white" />
-                <circle cx="45.6667" cy="74.6668" r="1.66667" transform="rotate(-90 45.6667 74.6668)" fill="white" />
-                <circle cx="45.6667" cy="31.0003" r="1.66667" transform="rotate(-90 45.6667 31.0003)" fill="white" />
-                <circle cx="60.3333" cy="74.6668" r="1.66667" transform="rotate(-90 60.3333 74.6668)" fill="white" />
-                <circle cx="60.3333" cy="31.0001" r="1.66667" transform="rotate(-90 60.3333 31.0001)" fill="white" />
-                <circle cx="88.6667" cy="74.6668" r="1.66667" transform="rotate(-90 88.6667 74.6668)" fill="white" />
-                <circle cx="88.6667" cy="31.0001" r="1.66667" transform="rotate(-90 88.6667 31.0001)" fill="white" />
-                <circle cx="117.667" cy="74.6668" r="1.66667" transform="rotate(-90 117.667 74.6668)" fill="white" />
-                <circle cx="117.667" cy="31.0001" r="1.66667" transform="rotate(-90 117.667 31.0001)" fill="white" />
-                <circle cx="74.6667" cy="74.6668" r="1.66667" transform="rotate(-90 74.6667 74.6668)" fill="white" />
-                <circle cx="74.6667" cy="31.0001" r="1.66667" transform="rotate(-90 74.6667 31.0001)" fill="white" />
-                <circle cx="103" cy="74.6668" r="1.66667" transform="rotate(-90 103 74.6668)" fill="white" />
-                <circle cx="103" cy="31.0001" r="1.66667" transform="rotate(-90 103 31.0001)" fill="white" />
-                <circle cx="132" cy="74.6668" r="1.66667" transform="rotate(-90 132 74.6668)" fill="white" />
-                <circle cx="132" cy="31.0001" r="1.66667" transform="rotate(-90 132 31.0001)" fill="white" />
-                <circle cx="1.66667" cy="60.0003" r="1.66667" transform="rotate(-90 1.66667 60.0003)" fill="white" />
-                <circle cx="1.66667" cy="16.3336" r="1.66667" transform="rotate(-90 1.66667 16.3336)" fill="white" />
-                <circle cx="16.3333" cy="60.0003" r="1.66667" transform="rotate(-90 16.3333 60.0003)" fill="white" />
-                <circle cx="16.3333" cy="16.3336" r="1.66667" transform="rotate(-90 16.3333 16.3336)" fill="white" />
-                <circle cx="31" cy="60.0003" r="1.66667" transform="rotate(-90 31 60.0003)" fill="white" />
-                <circle cx="31" cy="16.3336" r="1.66667" transform="rotate(-90 31 16.3336)" fill="white" />
-                <circle cx="45.6667" cy="60.0003" r="1.66667" transform="rotate(-90 45.6667 60.0003)" fill="white" />
-                <circle cx="45.6667" cy="16.3336" r="1.66667" transform="rotate(-90 45.6667 16.3336)" fill="white" />
-                <circle cx="60.3333" cy="60.0003" r="1.66667" transform="rotate(-90 60.3333 60.0003)" fill="white" />
-                <circle cx="60.3333" cy="16.3336" r="1.66667" transform="rotate(-90 60.3333 16.3336)" fill="white" />
-                <circle cx="88.6667" cy="60.0003" r="1.66667" transform="rotate(-90 88.6667 60.0003)" fill="white" />
-                <circle cx="88.6667" cy="16.3336" r="1.66667" transform="rotate(-90 88.6667 16.3336)" fill="white" />
-                <circle cx="117.667" cy="60.0003" r="1.66667" transform="rotate(-90 117.667 60.0003)" fill="white" />
-                <circle cx="117.667" cy="16.3336" r="1.66667" transform="rotate(-90 117.667 16.3336)" fill="white" />
-                <circle cx="74.6667" cy="60.0003" r="1.66667" transform="rotate(-90 74.6667 60.0003)" fill="white" />
-                <circle cx="74.6667" cy="16.3336" r="1.66667" transform="rotate(-90 74.6667 16.3336)" fill="white" />
-                <circle cx="103" cy="60.0003" r="1.66667" transform="rotate(-90 103 60.0003)" fill="white" />
-                <circle cx="103" cy="16.3336" r="1.66667" transform="rotate(-90 103 16.3336)" fill="white" />
-                <circle cx="132" cy="60.0003" r="1.66667" transform="rotate(-90 132 60.0003)" fill="white" />
-                <circle cx="132" cy="16.3336" r="1.66667" transform="rotate(-90 132 16.3336)" fill="white" />
-                <circle cx="1.66667" cy="45.3336" r="1.66667" transform="rotate(-90 1.66667 45.3336)" fill="white" />
-                <circle cx="1.66667" cy="1.66683" r="1.66667" transform="rotate(-90 1.66667 1.66683)" fill="white" />
-                <circle cx="16.3333" cy="45.3336" r="1.66667" transform="rotate(-90 16.3333 45.3336)" fill="white" />
-                <circle cx="16.3333" cy="1.66683" r="1.66667" transform="rotate(-90 16.3333 1.66683)" fill="white" />
-                <circle cx="31" cy="45.3336" r="1.66667" transform="rotate(-90 31 45.3336)" fill="white" />
-                <circle cx="31" cy="1.66683" r="1.66667" transform="rotate(-90 31 1.66683)" fill="white" />
-                <circle cx="45.6667" cy="45.3336" r="1.66667" transform="rotate(-90 45.6667 45.3336)" fill="white" />
-                <circle cx="45.6667" cy="1.66683" r="1.66667" transform="rotate(-90 45.6667 1.66683)" fill="white" />
-                <circle cx="60.3333" cy="45.3338" r="1.66667" transform="rotate(-90 60.3333 45.3338)" fill="white" />
-                <circle cx="60.3333" cy="1.66707" r="1.66667" transform="rotate(-90 60.3333 1.66707)" fill="white" />
-                <circle cx="88.6667" cy="45.3338" r="1.66667" transform="rotate(-90 88.6667 45.3338)" fill="white" />
-                <circle cx="88.6667" cy="1.66707" r="1.66667" transform="rotate(-90 88.6667 1.66707)" fill="white" />
-                <circle cx="117.667" cy="45.3338" r="1.66667" transform="rotate(-90 117.667 45.3338)" fill="white" />
-                <circle cx="117.667" cy="1.66707" r="1.66667" transform="rotate(-90 117.667 1.66707)" fill="white" />
-                <circle cx="74.6667" cy="45.3338" r="1.66667" transform="rotate(-90 74.6667 45.3338)" fill="white" />
-                <circle cx="74.6667" cy="1.66707" r="1.66667" transform="rotate(-90 74.6667 1.66707)" fill="white" />
-                <circle cx="103" cy="45.3338" r="1.66667" transform="rotate(-90 103 45.3338)" fill="white" />
-                <circle cx="103" cy="1.66707" r="1.66667" transform="rotate(-90 103 1.66707)" fill="white" />
-                <circle cx="132" cy="45.3338" r="1.66667" transform="rotate(-90 132 45.3338)" fill="white" />
-                <circle cx="132" cy="1.66707" r="1.66667" transform="rotate(-90 132 1.66707)" fill="white" />
-              </svg>
-            </div>
-            <div class="absolute -right-6 -top-6 z-[-1]">
-              <svg width="134" height="106" viewBox="0 0 134 106" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="1.66667" cy="104" r="1.66667" transform="rotate(-90 1.66667 104)" fill="white" />
-                <circle cx="16.3333" cy="104" r="1.66667" transform="rotate(-90 16.3333 104)" fill="white" />
-                <circle cx="31" cy="104" r="1.66667" transform="rotate(-90 31 104)" fill="white" />
-                <circle cx="45.6667" cy="104" r="1.66667" transform="rotate(-90 45.6667 104)" fill="white" />
-                <circle cx="60.3333" cy="104" r="1.66667" transform="rotate(-90 60.3333 104)" fill="white" />
-                <circle cx="88.6667" cy="104" r="1.66667" transform="rotate(-90 88.6667 104)" fill="white" />
-                <circle cx="117.667" cy="104" r="1.66667" transform="rotate(-90 117.667 104)" fill="white" />
-                <circle cx="74.6667" cy="104" r="1.66667" transform="rotate(-90 74.6667 104)" fill="white" />
-                <circle cx="103" cy="104" r="1.66667" transform="rotate(-90 103 104)" fill="white" />
-                <circle cx="132" cy="104" r="1.66667" transform="rotate(-90 132 104)" fill="white" />
-                <circle cx="1.66667" cy="89.3333" r="1.66667" transform="rotate(-90 1.66667 89.3333)" fill="white" />
-                <circle cx="16.3333" cy="89.3333" r="1.66667" transform="rotate(-90 16.3333 89.3333)" fill="white" />
-                <circle cx="31" cy="89.3333" r="1.66667" transform="rotate(-90 31 89.3333)" fill="white" />
-                <circle cx="45.6667" cy="89.3333" r="1.66667" transform="rotate(-90 45.6667 89.3333)" fill="white" />
-                <circle cx="60.3333" cy="89.3338" r="1.66667" transform="rotate(-90 60.3333 89.3338)" fill="white" />
-                <circle cx="88.6667" cy="89.3338" r="1.66667" transform="rotate(-90 88.6667 89.3338)" fill="white" />
-                <circle cx="117.667" cy="89.3338" r="1.66667" transform="rotate(-90 117.667 89.3338)" fill="white" />
-                <circle cx="74.6667" cy="89.3338" r="1.66667" transform="rotate(-90 74.6667 89.3338)" fill="white" />
-                <circle cx="103" cy="89.3338" r="1.66667" transform="rotate(-90 103 89.3338)" fill="white" />
-                <circle cx="132" cy="89.3338" r="1.66667" transform="rotate(-90 132 89.3338)" fill="white" />
-                <circle cx="1.66667" cy="74.6673" r="1.66667" transform="rotate(-90 1.66667 74.6673)" fill="white" />
-                <circle cx="1.66667" cy="31.0003" r="1.66667" transform="rotate(-90 1.66667 31.0003)" fill="white" />
-                <circle cx="16.3333" cy="74.6668" r="1.66667" transform="rotate(-90 16.3333 74.6668)" fill="white" />
-                <circle cx="16.3333" cy="31.0003" r="1.66667" transform="rotate(-90 16.3333 31.0003)" fill="white" />
-                <circle cx="31" cy="74.6668" r="1.66667" transform="rotate(-90 31 74.6668)" fill="white" />
-                <circle cx="31" cy="31.0003" r="1.66667" transform="rotate(-90 31 31.0003)" fill="white" />
-                <circle cx="45.6667" cy="74.6668" r="1.66667" transform="rotate(-90 45.6667 74.6668)" fill="white" />
-                <circle cx="45.6667" cy="31.0003" r="1.66667" transform="rotate(-90 45.6667 31.0003)" fill="white" />
-                <circle cx="60.3333" cy="74.6668" r="1.66667" transform="rotate(-90 60.3333 74.6668)" fill="white" />
-                <circle cx="60.3333" cy="31.0001" r="1.66667" transform="rotate(-90 60.3333 31.0001)" fill="white" />
-                <circle cx="88.6667" cy="74.6668" r="1.66667" transform="rotate(-90 88.6667 74.6668)" fill="white" />
-                <circle cx="88.6667" cy="31.0001" r="1.66667" transform="rotate(-90 88.6667 31.0001)" fill="white" />
-                <circle cx="117.667" cy="74.6668" r="1.66667" transform="rotate(-90 117.667 74.6668)" fill="white" />
-                <circle cx="117.667" cy="31.0001" r="1.66667" transform="rotate(-90 117.667 31.0001)" fill="white" />
-                <circle cx="74.6667" cy="74.6668" r="1.66667" transform="rotate(-90 74.6667 74.6668)" fill="white" />
-                <circle cx="74.6667" cy="31.0001" r="1.66667" transform="rotate(-90 74.6667 31.0001)" fill="white" />
-                <circle cx="103" cy="74.6668" r="1.66667" transform="rotate(-90 103 74.6668)" fill="white" />
-                <circle cx="103" cy="31.0001" r="1.66667" transform="rotate(-90 103 31.0001)" fill="white" />
-                <circle cx="132" cy="74.6668" r="1.66667" transform="rotate(-90 132 74.6668)" fill="white" />
-                <circle cx="132" cy="31.0001" r="1.66667" transform="rotate(-90 132 31.0001)" fill="white" />
-                <circle cx="1.66667" cy="60.0003" r="1.66667" transform="rotate(-90 1.66667 60.0003)" fill="white" />
-                <circle cx="1.66667" cy="16.3336" r="1.66667" transform="rotate(-90 1.66667 16.3336)" fill="white" />
-                <circle cx="16.3333" cy="60.0003" r="1.66667" transform="rotate(-90 16.3333 60.0003)" fill="white" />
-                <circle cx="16.3333" cy="16.3336" r="1.66667" transform="rotate(-90 16.3333 16.3336)" fill="white" />
-                <circle cx="31" cy="60.0003" r="1.66667" transform="rotate(-90 31 60.0003)" fill="white" />
-                <circle cx="31" cy="16.3336" r="1.66667" transform="rotate(-90 31 16.3336)" fill="white" />
-                <circle cx="45.6667" cy="60.0003" r="1.66667" transform="rotate(-90 45.6667 60.0003)" fill="white" />
-                <circle cx="45.6667" cy="16.3336" r="1.66667" transform="rotate(-90 45.6667 16.3336)" fill="white" />
-                <circle cx="60.3333" cy="60.0003" r="1.66667" transform="rotate(-90 60.3333 60.0003)" fill="white" />
-                <circle cx="60.3333" cy="16.3336" r="1.66667" transform="rotate(-90 60.3333 16.3336)" fill="white" />
-                <circle cx="88.6667" cy="60.0003" r="1.66667" transform="rotate(-90 88.6667 60.0003)" fill="white" />
-                <circle cx="88.6667" cy="16.3336" r="1.66667" transform="rotate(-90 88.6667 16.3336)" fill="white" />
-                <circle cx="117.667" cy="60.0003" r="1.66667" transform="rotate(-90 117.667 60.0003)" fill="white" />
-                <circle cx="117.667" cy="16.3336" r="1.66667" transform="rotate(-90 117.667 16.3336)" fill="white" />
-                <circle cx="74.6667" cy="60.0003" r="1.66667" transform="rotate(-90 74.6667 60.0003)" fill="white" />
-                <circle cx="74.6667" cy="16.3336" r="1.66667" transform="rotate(-90 74.6667 16.3336)" fill="white" />
-                <circle cx="103" cy="60.0003" r="1.66667" transform="rotate(-90 103 60.0003)" fill="white" />
-                <circle cx="103" cy="16.3336" r="1.66667" transform="rotate(-90 103 16.3336)" fill="white" />
-                <circle cx="132" cy="60.0003" r="1.66667" transform="rotate(-90 132 60.0003)" fill="white" />
-                <circle cx="132" cy="16.3336" r="1.66667" transform="rotate(-90 132 16.3336)" fill="white" />
-                <circle cx="1.66667" cy="45.3336" r="1.66667" transform="rotate(-90 1.66667 45.3336)" fill="white" />
-                <circle cx="1.66667" cy="1.66683" r="1.66667" transform="rotate(-90 1.66667 1.66683)" fill="white" />
-                <circle cx="16.3333" cy="45.3336" r="1.66667" transform="rotate(-90 16.3333 45.3336)" fill="white" />
-                <circle cx="16.3333" cy="1.66683" r="1.66667" transform="rotate(-90 16.3333 1.66683)" fill="white" />
-                <circle cx="31" cy="45.3336" r="1.66667" transform="rotate(-90 31 45.3336)" fill="white" />
-                <circle cx="31" cy="1.66683" r="1.66667" transform="rotate(-90 31 1.66683)" fill="white" />
-                <circle cx="45.6667" cy="45.3336" r="1.66667" transform="rotate(-90 45.6667 45.3336)" fill="white" />
-                <circle cx="45.6667" cy="1.66683" r="1.66667" transform="rotate(-90 45.6667 1.66683)" fill="white" />
-                <circle cx="60.3333" cy="45.3338" r="1.66667" transform="rotate(-90 60.3333 45.3338)" fill="white" />
-                <circle cx="60.3333" cy="1.66707" r="1.66667" transform="rotate(-90 60.3333 1.66707)" fill="white" />
-                <circle cx="88.6667" cy="45.3338" r="1.66667" transform="rotate(-90 88.6667 45.3338)" fill="white" />
-                <circle cx="88.6667" cy="1.66707" r="1.66667" transform="rotate(-90 88.6667 1.66707)" fill="white" />
-                <circle cx="117.667" cy="45.3338" r="1.66667" transform="rotate(-90 117.667 45.3338)" fill="white" />
-                <circle cx="117.667" cy="1.66707" r="1.66667" transform="rotate(-90 117.667 1.66707)" fill="white" />
-                <circle cx="74.6667" cy="45.3338" r="1.66667" transform="rotate(-90 74.6667 45.3338)" fill="white" />
-                <circle cx="74.6667" cy="1.66707" r="1.66667" transform="rotate(-90 74.6667 1.66707)" fill="white" />
-                <circle cx="103" cy="45.3338" r="1.66667" transform="rotate(-90 103 45.3338)" fill="white" />
-                <circle cx="103" cy="1.66707" r="1.66667" transform="rotate(-90 103 1.66707)" fill="white" />
-                <circle cx="132" cy="45.3338" r="1.66667" transform="rotate(-90 132 45.3338)" fill="white" />
-                <circle cx="132" cy="1.66707" r="1.66667" transform="rotate(-90 132 1.66707)" fill="white" />
-              </svg>
-            </div>
           </div>
         </div>
       </div>
@@ -533,7 +464,7 @@
   <!-- ====== Hero Section End -->
 
   <!-- ====== About Section Start -->
-  <section id="about" class="bg-gray-1 pb-8 pt-20 dark:bg-dark-2 lg:pb-[70px] lg:pt-[120px]">
+  <section id="about" class="wow fadeInDown bg-gray-1 pb-8 pt-20 dark:bg-dark-2 lg:pb-[70px] lg:pt-[120px]">
     <div class="container mx-auto">
       <div class="relative overflow-hidden">
         <div class="-mx-4 flex flex-wrap items-stretch">
@@ -544,8 +475,8 @@
               </h2>
               <ul class="list-none p-5 text-left">
                 <li class="flex items-start mb-2 font-bold text-dark dark:text-white ">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" fill="currentColor" 
-                  class="w-4 h-4 mr-2 mt-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" fill="currentColor"
+                    class="w-4 h-4 mr-2 mt-1">
                     <path fill-rule="evenodd"
                       d="M16.403 12.652a3 3 0 0 0 0-5.304 3 3 0 0 0-3.75-3.751 3 3 0 0 0-5.305 0 3 3 0 0 0-3.751 3.75 3 3 0 0 0 0 5.305 3 3 0 0 0 3.75 3.751 3 3 0 0 0 5.305 0 3 3 0 0 0 3.751-3.75Zm-2.546-4.46a.75.75 0 0 0-1.214-.883l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z"
                       clip-rule="evenodd" />
@@ -554,38 +485,41 @@
                   </span>
                 </li>
                 <li class="flex items-start mb-2 font-bold text-dark dark:text-white">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" fill="currentColor" 
-                  class="w-4 h-4 mr-2 mt-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" fill="currentColor"
+                    class="w-4 h-4 mr-2 mt-1">
                     <path fill-rule="evenodd"
                       d="M16.403 12.652a3 3 0 0 0 0-5.304 3 3 0 0 0-3.75-3.751 3 3 0 0 0-5.305 0 3 3 0 0 0-3.751 3.75 3 3 0 0 0 0 5.305 3 3 0 0 0 3.75 3.751 3 3 0 0 0 5.305 0 3 3 0 0 0 3.751-3.75Zm-2.546-4.46a.75.75 0 0 0-1.214-.883l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z"
                       clip-rule="evenodd" />
                   </svg>
-                  <span class="ml-2 text-left">Trabajamos las siete habilidades cognitivas que son esenciales para el aprendizaje y
+                  <span class="ml-2 text-left">Trabajamos las siete habilidades cognitivas que son esenciales para el
+                    aprendizaje y
                     desempeño.</span>
                 </li>
                 <li class="flex items-start mb-2 font-bold text-dark dark:text-white">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" fill="currentColor" 
-                  class="w-4 h-4 mr-2 mt-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" fill="currentColor"
+                    class="w-4 h-4 mr-2 mt-1">
                     <path fill-rule="evenodd"
                       d="M16.403 12.652a3 3 0 0 0 0-5.304 3 3 0 0 0-3.75-3.751 3 3 0 0 0-5.305 0 3 3 0 0 0-3.751 3.75 3 3 0 0 0 0 5.305 3 3 0 0 0 3.75 3.751 3 3 0 0 0 5.305 0 3 3 0 0 0 3.751-3.75Zm-2.546-4.46a.75.75 0 0 0-1.214-.883l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z"
                       clip-rule="evenodd" />
                   </svg>
-                  <span class="ml-2 text-left">Nuestros programas brindan un excelente valor con base en tiempo, dinero y esfuerzo.
+                  <span class="ml-2 text-left">Nuestros programas brindan un excelente valor con base en tiempo, dinero
+                    y esfuerzo.
                   </span>
                 </li>
                 <li class="flex items-start mb-2 font-bold text-dark dark:text-white">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" fill="currentColor" 
-                  class="w-4 h-4 mr-2 mt-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" fill="currentColor"
+                    class="w-4 h-4 mr-2 mt-1">
                     <path fill-rule="evenodd"
                       d="M16.403 12.652a3 3 0 0 0 0-5.304 3 3 0 0 0-3.75-3.751 3 3 0 0 0-5.305 0 3 3 0 0 0-3.751 3.75 3 3 0 0 0 0 5.305 3 3 0 0 0 3.75 3.751 3 3 0 0 0 5.305 0 3 3 0 0 0 3.751-3.75Zm-2.546-4.46a.75.75 0 0 0-1.214-.883l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z"
                       clip-rule="evenodd" />
                   </svg>
-                  <span class="ml-2">Identificamos las habilidades débiles detrás de los problemas de aprendizaje y luego trabajamos con ellas.
+                  <span class="ml-2">Identificamos las habilidades débiles detrás de los problemas de aprendizaje y
+                    luego trabajamos con ellas.
                   </span>
                 </li>
                 <li class="flex items-start mb-2 font-bold text-dark dark:text-white">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" fill="currentColor" 
-                  class="w-4 h-4 mr-2 mt-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" fill="currentColor"
+                    class="w-4 h-4 mr-2 mt-1">
                     <path fill-rule="evenodd"
                       d="M16.403 12.652a3 3 0 0 0 0-5.304 3 3 0 0 0-3.75-3.751 3 3 0 0 0-5.305 0 3 3 0 0 0-3.751 3.75 3 3 0 0 0 0 5.305 3 3 0 0 0 3.75 3.751 3 3 0 0 0 5.305 0 3 3 0 0 0 3.751-3.75Zm-2.546-4.46a.75.75 0 0 0-1.214-.883l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z"
                       clip-rule="evenodd" />
@@ -603,18 +537,18 @@
   <!-- ====== About Section End -->
 
   <!-- ====== Section Start -->
-  <section class="relative z-10 overflow-hidden bg-primary py-20 lg:py-[115px]">
+  <section class="wow fadeInDown relative z-10 overflow-hidden bg-primary py-20 lg:py-[115px]">
     <div class="container mx-auto">
       <div class="relative overflow-hidden">
         <div class="-mx-4 flex flex-wrap items-stretch">
           <div class="w-full px-4">
             <div class="mx-auto max-w-[570px] text-center">
               <h2 class="mb-2.5 text-3xl font-bold text-white md:text-[38px] md:leading-[1.44]">
-                <span>¿Quieres saber más?
-                  Nosotros queremos saber más de ti.
+                <span>TOMA EL PRIMER PASO</span>
+                <span>
                   Platiquemos
-                  WhatsApp / Web 
-                  </span>
+                  WhatsApp / Web
+                </span>
               </h2>
               <!-- <a href="brainrx.html"
                 class="inline-block rounded-md border border-transparent bg-secondary px-7 py-3 text-base font-medium text-white transition hover:bg-[#0BB489]">
@@ -632,8 +566,7 @@
             <div class="wow fadeInUp flex items-center justify-center gap-4 text-center" data-wow-delay=".3s">
               <a href="https://www.facebook.com/profile.php?id=100071187759340"
                 class="text-white/60 duration-300 ease-in-out hover:text-white" target="_blank">
-                <svg class="fill-current" width="41" height="36" xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 50 50">
+                <svg class="fill-current" width="41" height="36" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
                   <path
                     d="M25,3C12.85,3,3,12.85,3,25c0,11.03,8.125,20.137,18.712,21.728V30.831h-5.443v-5.783h5.443v-3.848 c0-6.371,3.104-9.168,8.399-9.168c2.536,0,3.877,0.188,4.512,0.274v5.048h-3.612c-2.248,0-3.033,2.131-3.033,4.533v3.161h6.588 l-0.894,5.783h-5.694v15.944C38.716,45.318,47,36.137,47,25C47,12.85,37.15,3,25,3z">
                   </path>
@@ -652,33 +585,33 @@
                   </path>
                 </svg>
               </a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div>
-      <span class="absolute left-0 top-0">
-        <svg width="495" height="470" viewBox="0 0 495 470" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="55" cy="442" r="138" stroke="white" stroke-opacity="0.04" stroke-width="50" />
-          <circle cx="446" r="39" stroke="white" stroke-opacity="0.04" stroke-width="20" />
-          <path d="M245.406 137.609L233.985 94.9852L276.609 106.406L245.406 137.609Z" stroke="white"
-            stroke-opacity="0.08" stroke-width="12" />
-        </svg>
-      </span>
-      <span class="absolute bottom-0 right-0">
-        <svg width="493" height="470" viewBox="0 0 493 470" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="462" cy="5" r="138" stroke="white" stroke-opacity="0.04" stroke-width="50" />
-          <circle cx="49" cy="470" r="39" stroke="white" stroke-opacity="0.04" stroke-width="20" />
-          <path d="M222.393 226.701L272.808 213.192L259.299 263.607L222.393 226.701Z" stroke="white"
-            stroke-opacity="0.06" stroke-width="13" />
-        </svg>
-      </span>
-    </div>
+      <div>
+        <span class="absolute left-0 top-0">
+          <svg width="495" height="470" viewBox="0 0 495 470" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="55" cy="442" r="138" stroke="white" stroke-opacity="0.04" stroke-width="50" />
+            <circle cx="446" r="39" stroke="white" stroke-opacity="0.04" stroke-width="20" />
+            <path d="M245.406 137.609L233.985 94.9852L276.609 106.406L245.406 137.609Z" stroke="white"
+              stroke-opacity="0.08" stroke-width="12" />
+          </svg>
+        </span>
+        <span class="absolute bottom-0 right-0">
+          <svg width="493" height="470" viewBox="0 0 493 470" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="462" cy="5" r="138" stroke="white" stroke-opacity="0.04" stroke-width="50" />
+            <circle cx="49" cy="470" r="39" stroke="white" stroke-opacity="0.04" stroke-width="20" />
+            <path d="M222.393 226.701L272.808 213.192L259.299 263.607L222.393 226.701Z" stroke="white"
+              stroke-opacity="0.06" stroke-width="13" />
+          </svg>
+        </span>
+      </div>
   </section>
   <!-- ====== Section End -->
 
   <!-- ====== Testimonial Section Start -->
-  <section id="testimonios" class="overflow-hidden bg-gray-1 py-20 dark:bg-dark-2 md:py-[120px]">
+  <section id="testimonios" class="wow fadeInLeft bg-gray-1 py-20 dark:bg-dark-2 md:py-[120px]">
     <div class="container mx-auto">
       <div class="-mx-4 flex flex-wrap justify-center">
         <div class="w-full px-4">
@@ -766,7 +699,6 @@
                 </a>
               </div>
             </div>
-
             <div class="swiper-slide">
               <div class="rounded-xl bg-white px-4 py-[30px] shadow-testimonial dark:bg-dark sm:px-[30px]">
                 <div class="mb-[18px] flex items-center gap-[2px]">
@@ -776,19 +708,16 @@
                   <img src="./assets/images/testimonials/icon-star.svg" alt="star icon" />
                   <img src="./assets/images/testimonials/icon-star.svg" alt="star icon" />
                 </div>
-
                 <p class="mb-6 text-base text-body-color dark:text-dark-6">
                   “Nos sentimos increíblemente agradecidos por los servicios que recibimos en BrainRx. Mi hijo ha sido
                   diagnosticado con TDAH, y encontrar el apoyo adecuado ha marcado una gran diferencia en nuestras
                   vidas’’
                 </p>
-
                 <a href="#" class="flex items-center gap-4">
                   <div class="h-[50px] w-[50px] overflow-hidden rounded-full">
                     <img src="./assets/images/testimonials/author-04.png" alt="author"
                       class="h-[50px] w-[50px] overflow-hidden rounded-full" />
                   </div>
-
                   <div>
                     <h3 class="text-sm font-semibold text-dark dark:text-white">
                       Sandra Arévalo
@@ -1232,7 +1161,7 @@
   <!-- ====== Blog Section End -->
 
   <!-- ====== Brands Section Start -->
-  <section class="pb-20 dark:bg-dark">
+  <section class="wow fadeInUp pb-20 dark:bg-dark">
     <div class="container px-4">
       <div class="-mx-4 flex flex-wrap items-center justify-center gap-8 xl:gap-11">
         <a href="/#home">
@@ -1352,20 +1281,20 @@
             <h4 class="mb-9 text-lg font-semibold text-white">Preguntas frecuentes</h4>
             <ul>
               <li>
-                <a href="#works" class="mb-3 inline-block text-base text-gray-7 hover:text-primary">
+                <a href="brainrx2.html" class="mb-3 inline-block text-base text-gray-7 hover:text-primary">
                   ¿Cómo funciona?
                 </a>
               </li>
               <li>
-                <a href="#who" class="mb-3 inline-block text-base text-gray-7 hover:text-primary">
+                <a href="how-we-help.html#who" class="mb-3 inline-block text-base text-gray-7 hover:text-primary">
                   ¿A quién ayudamos en MIND?
                 </a>
               </li>
-              <li>
-                <a href="javascript:void(0)" class="mb-3 inline-block text-base text-gray-7 hover:text-primary">
+              <!-- <li>
+                <a href="how-we-help.html#who" class="mb-3 inline-block text-base text-gray-7 hover:text-primary">
                   ¿CÓMO ME BENEFICIA ESTE PROGRAMA?
                 </a>
-              </li>
+              </li> -->
               <!-- <li>
                 <a href="javascript:void(0)" class="mb-3 inline-block text-base text-gray-7 hover:text-primary">
                   -
@@ -1381,12 +1310,12 @@
             </h4>
             <ul>
               <li>
-                <a href="https://brainrx.com.mx" class="mb-3 inline-block text-base text-gray-7 hover:text-primary">
+                <a href="brainrx.html" class="mb-3 inline-block text-base text-gray-7 hover:text-primary">
                   BrainRx
                 </a>
               </li>
               <li>
-                <a href="" class="mb-3 inline-block text-base text-gray-7 hover:text-primary">
+                <a class="mb-3 inline-block text-base text-gray-7 hover:text-primary">
                   ReadRx
                 </a>
               </li>
@@ -1627,7 +1556,6 @@
     <span class="mt-[6px] h-3 w-3 rotate-45 border-l border-t border-white"></span>
   </a>
   <!-- ====== Back To Top End -->
-  <!-- Hecho por -->
   <!-- ====== Made With Button Start -->
   <a target="_blank" rel="nofollow noopener"
     class="fixed bottom-8 left-4 z-[999] inline-flex items-center gap-[10px] rounded-lg bg-white px-[14px] py-2 shadow-2 dark:bg-dark-2 sm:left-9"
@@ -1642,9 +1570,22 @@
     </span>
   </a>
   <!-- ====== Made With Button End -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
+  <script>
+    var swiper = new Swiper('.swiper-container', {
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      loop: true,
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
+    });
+  </script>
   <!-- ====== All Scripts -->
-
   <script src="assets/js/swiper-bundle.min.js"></script>
   <script src="assets/js/main.js"></script>
   <script>
